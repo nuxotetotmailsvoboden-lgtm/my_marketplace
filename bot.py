@@ -28,5 +28,12 @@ async def main():
     # Запускаем поллинг
     await dp.start_polling(bot)
 
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from utils import check_expired_cashback_and_notify
+
+scheduler = AsyncIOScheduler()
+scheduler.add_job(check_expired_cashback_and_notify, 'interval', hours=24)
+scheduler.start()
+
 if __name__ == "__main__":
     asyncio.run(main())
