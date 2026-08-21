@@ -16,3 +16,6 @@ class AddProductForm(StatesGroup):
     size = State()
     color = State()
     image = State()
+    
+class StudentVerifyForm(StatesGroup):
+    photo = State()
